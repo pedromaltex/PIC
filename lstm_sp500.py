@@ -51,9 +51,9 @@ images = []
 for i in range(len(y_test)):
     plt.figure()
     plt.plot(y_test[:i], label='Real', color='blue')
-    plt.plot(y_pred[:i], label='Previsto', color='red')
+    plt.plot(y_pred[:i], label='Predicted', color='red')
     plt.legend()
-    plt.title(f'Preço Real vs Previsto (Frame {i+1})')
+    plt.title(f'Real Price vs Predicted (Frame {i+1})')
     plt.savefig(f'frame_{i}.png')
     plt.close()
     images.append(Image.open(f'frame_{i}.png'))
