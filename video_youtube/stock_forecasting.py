@@ -8,7 +8,8 @@ import torch.nn as nn
 
 import yfinance as yf
 
-data = yf.download("^GSPC", start="1980-01-01", end="2025-02-09")
+stock_symbol = str(input("Stock symbol: ")).upper()
+data = yf.download(stock_symbol, start="1980-01-01", end="2025-02-09")
 data.reset_index(inplace=True)
 
 # Caso o DataFrame tenha um MultiIndex, remover os níveis extras
@@ -31,7 +32,7 @@ device
 data['Date'] = pd.to_datetime(data['Date'])
 
 plt.plot(data['Date'], data['Close'])
-plt.savefig('plot0.png')  # This will save the plot as a PNG image
+plt.savefig(f'{stock_symbol}_0.png')  # This will save the plot as a PNG image
 
 
 # %%
@@ -223,9 +224,9 @@ plt.plot(y_train, label='Actual Close')
 plt.plot(predicted, label='Predicted Close')
 plt.xlabel('Day')
 plt.ylabel('Close')
+plt.savefig(f'{stock_symbol}_1.png')  # This will save the plot as a PNG image
 plt.legend()
 plt.show()
-plt.savefig('plot1.png')  # This will save the plot as a PNG image
 
 
 # %%
@@ -251,9 +252,9 @@ plt.plot(new_y_train, label='Actual Close')
 plt.plot(train_predictions, label='Predicted Close')
 plt.xlabel('Day')
 plt.ylabel('Close')
+plt.savefig(f'{stock_symbol}_2.png')  # This will save the plot as a PNG image
 plt.legend()
 plt.show()
-plt.savefig('plot2.png')  # This will save the plot as a PNG image
 
 
 # %%
@@ -279,9 +280,9 @@ plt.plot(new_y_test, label='Actual Close')
 plt.plot(test_predictions, label='Predicted Close')
 plt.xlabel('Day')
 plt.ylabel('Close')
+plt.savefig(f'{stock_symbol}_3.png')  # This will save the plot as a PNG image
 plt.legend()
 plt.show()
-plt.savefig('plot3.png')  # This will save the plot as a PNG image
 
 
 
