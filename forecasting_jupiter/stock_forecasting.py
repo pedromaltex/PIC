@@ -9,7 +9,7 @@ import torch.nn as nn
 import yfinance as yf
 
 stock_symbol = str(input("Stock symbol: ")).upper()
-data = yf.download(stock_symbol, start="1980-01-01", end="2025-02-09")
+data = yf.download(stock_symbol, start="1960-01-01", end="2025-02-09")
 data.reset_index(inplace=True)
 
 # Caso o DataFrame tenha um MultiIndex, remover os níveis extras
