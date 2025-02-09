@@ -31,6 +31,8 @@ device
 data['Date'] = pd.to_datetime(data['Date'])
 
 plt.plot(data['Date'], data['Close'])
+plt.savefig('plot0.png')  # This will save the plot as a PNG image
+
 
 # %%
 from copy import deepcopy as dc 
@@ -223,6 +225,8 @@ plt.xlabel('Day')
 plt.ylabel('Close')
 plt.legend()
 plt.show()
+plt.savefig('plot1.png')  # This will save the plot as a PNG image
+
 
 # %%
 train_predictions = predicted.flatten()
@@ -249,6 +253,8 @@ plt.xlabel('Day')
 plt.ylabel('Close')
 plt.legend()
 plt.show()
+plt.savefig('plot2.png')  # This will save the plot as a PNG image
+
 
 # %%
 test_predictions = model(x_test.to(device)).detach().cpu().numpy().flatten()
@@ -275,5 +281,7 @@ plt.xlabel('Day')
 plt.ylabel('Close')
 plt.legend()
 plt.show()
+plt.savefig('plot3.png')  # This will save the plot as a PNG image
+
 
 
