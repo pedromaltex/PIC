@@ -16,7 +16,6 @@ data.reset_index(inplace=True)
 if isinstance(data.columns, pd.MultiIndex):
     data.columns = data.columns.droplevel(1)  # Remove o primeiro nível do índice
 
-#data = pd.read_csv('AMZN.csv')
 
 data
 
@@ -159,7 +158,7 @@ class LSTM(nn.Module):
         out = self.fc(out[:, -1, :])
         return out
 
-model = LSTM(1, 4, 1)
+model = LSTM(1, 100, 1)
 model.to(device)
 model
 
